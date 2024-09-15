@@ -51,6 +51,4 @@ public class Booking {
 	public void setCompleted(boolean isCompleted) {
 		this.isCompleted = isCompleted;
 	}
-    
-    
 }
