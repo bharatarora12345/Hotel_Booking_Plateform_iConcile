@@ -1,0 +1,7 @@
+<div *ngFor="let hotel of hotels">
+    <h2>{{ hotel.name }}</h2>
+    <p>Location: {{ hotel.location }}</p>
+    <p>Rating: {{ hotel.rating }}</p>
+    <p>Price per night: {{ hotel.pricePerNight }}</p>
+    <button (click)="viewHotelDetails(hotel.id)">View Details</button>
+  </div>
