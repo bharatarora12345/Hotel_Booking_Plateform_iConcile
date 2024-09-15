@@ -19,15 +19,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // Create User
-    @PostMapping("/add/user")
+    @PostMapping("/add")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User createdUser = userService.createUser(user);
         return ResponseEntity.ok(createdUser);
     }
 
-    // Get All Users
-    @GetMapping("get/allUsers")
+    @GetMapping("getAll")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);

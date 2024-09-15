@@ -15,13 +15,19 @@ import com.HotelBookingPlateform_iConicle.entity.Booking;
 import com.HotelBookingPlateform_iConicle.entity.Hotel;
 import com.HotelBookingPlateform_iConicle.entity.User;
 import com.HotelBookingPlateform_iConicle.service.BookingService;
+import com.HotelBookingPlateform_iConicle.service.HotelService;
+import com.HotelBookingPlateform_iConicle.service.UserService;
 
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {
 
+	@Autowired
+	private UserService userService;
     @Autowired
     private BookingService bookingService;
+	@Autowired
+	private HotelService hotelService;
 
     @GetMapping("/iConicleDummyApi")
     public String dummyApi() {
@@ -32,16 +38,15 @@ public class BookingController {
     
     @PostMapping("/create/draftBooking")
     public Booking createDraft(@RequestParam Long userId, @RequestParam Long hotelId) {
-        User user = new User();
-        user.setId(userId);
-        Hotel hotel = new Hotel();
-        hotel.setId(hotelId);
+        User user = userService.getUserById(userId);
+        Hotel hotel = hotelService.getHotelById(hotelId);
         return bookingService.createDraftBooking(user, hotel);
     }
 
     @PostMapping("/complete/{bookingId}")
-    public void completeBooking(@PathVariable Long bookingId) {
+    public String completeBooking(@PathVariable Long bookingId) {
         bookingService.completeBooking(bookingId);
+        return "Complete booking with Id" + bookingId;
     }
     
     
