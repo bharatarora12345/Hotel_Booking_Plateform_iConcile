@@ -4,11 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
 public class Hotel {
-	 @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
@@ -45,6 +43,4 @@ public class Hotel {
 	public void setPricePerNight(double pricePerNight) {
 		this.pricePerNight = pricePerNight;
 	}
-    
-
 }
