@@ -1,0 +1,98 @@
+<nav>
+  <a routerLink="/hotels">Hotel List</a>
+  <a routerLink="/users">User List</a>
+  <a *ngIf="userId" (click)="logoutUser()">Logout</a>
+  <a *ngIf="!userId" routerLink="/home" >Login</a>
+</nav>
+
+<div class="auth-container">
+    <h2 *ngIf="!showRegisterForm">Login</h2>
+    <h2 *ngIf="showRegisterForm">Register</h2>
+    
+    <!-- Login Form -->
+    <form *ngIf="!showRegisterForm" (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="loginEmail">Email:</label>
+        <input 
+          type="email" 
+          id="loginEmail" 
+          name="email" 
+          [(ngModel)]="loginData.email" 
+          required 
+          #email="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="email.invalid && email.touched" class="error">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password:</label>
+        <input 
+          type="password" 
+          id="loginPassword" 
+          name="password" 
+          [(ngModel)]="loginData.password" 
+          required 
+          #password="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="password.invalid && password.touched" class="error">
+          Password is required.
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <button type="button" (click)="showRegisterForm = true">Register</button>
+    </form>
+  
+    <!-- Registration Form -->
+    <form *ngIf="showRegisterForm" (ngSubmit)="onRegister()" #registerForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          [(ngModel)]="registerData.name" 
+          required 
+          #name="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="registerEmail">Email:</label>
+        <input 
+          type="email" 
+          id="registerEmail" 
+          name="email" 
+          [(ngModel)]="registerData.email" 
+          required 
+          #registerEmail="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="registerEmail.invalid && registerEmail.touched" class="error">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="registerPassword">Password:</label>
+        <input 
+          type="password" 
+          id="registerPassword" 
+          name="password" 
+          [(ngModel)]="registerData.password" 
+          required 
+          #registerPassword="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="registerPassword.invalid && registerPassword.touched" class="error">
+          Password is required.
+        </div>
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <button type="button" (click)="showRegisterForm = false">Login</button>
+    </form>
+  </div>

@@ -16,4 +16,16 @@ export class UserListComponent implements OnInit {
       this.users = data;
     });
   }
+
+  initiateDraftBooking(userId: number, hotelId: number) {
+    this.apiService.createDraftBooking(userId, hotelId).subscribe(() => {
+      alert('Draft booking created!');
+    });
+  }
+
+  completeBooking(bookingId: number) {
+    this.apiService.completeBooking(bookingId).subscribe(() => {
+      alert('Booking completed!');
+    });
+  }
 }

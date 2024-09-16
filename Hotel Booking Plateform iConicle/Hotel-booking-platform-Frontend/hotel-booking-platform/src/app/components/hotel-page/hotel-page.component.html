@@ -1,31 +1,43 @@
 <div>
     <h2>Hotel Activities</h2>
-    
-    <h3>Visits</h3>
-    <div *ngIf="visits && visits.length > 0; else noVisits">
-      <div *ngFor="let visit of visits">
-        <p>User ID: {{ visit.user.id }}, Visit Time: {{ visit.visitTime }}</p>
-      </div>
-    </div>
-    <ng-template #noVisits>
-      <p>No visits recorded for this hotel.</p>
-    </ng-template>
-    
+  
     <h3>Draft Bookings</h3>
     <div *ngIf="draftBookings && draftBookings.length > 0; else noDraftBookings">
-      <div *ngFor="let booking of draftBookings">
-        <p>User ID: {{ booking.user.id }}</p>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>User Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of draftBookings">
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.user.name }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <ng-template #noDraftBookings>
       <p>No draft bookings for this hotel.</p>
     </ng-template>
-    
+  
     <h3>Completed Bookings</h3>
     <div *ngIf="completedBookings && completedBookings.length > 0; else noCompletedBookings">
-      <div *ngFor="let booking of completedBookings">
-        <p>User ID: {{ booking.user.id }}</p>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>User Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of completedBookings">
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.user.name }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <ng-template #noCompletedBookings>
       <p>No completed bookings for this hotel.</p>

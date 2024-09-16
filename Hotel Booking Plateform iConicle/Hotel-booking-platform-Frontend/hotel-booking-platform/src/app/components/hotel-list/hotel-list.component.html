@@ -1,7 +1,29 @@
-<div *ngFor="let hotel of hotels">
-    <h2>{{ hotel.name }}</h2>
-    <p>Location: {{ hotel.location }}</p>
-    <p>Rating: {{ hotel.rating }}</p>
-    <p>Price per night: {{ hotel.pricePerNight }}</p>
-    <button (click)="viewHotelDetails(hotel.id)">View Details</button>
-  </div>
+<div>
+  <h2>Hotel List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Hotel Name</th>
+        <th>Location</th>
+        <th>Rating</th>
+        <th>Price per Night</th>
+        <th *ngIf="userId">Actions</th>
+        <th *ngIf="userId">Draft Booking</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of hotels">
+        <td>{{ hotel.name }}</td>
+        <td>{{ hotel.location }}</td>
+        <td>{{ hotel.rating }}</td>
+        <td>\${{ hotel.pricePerNight }}</td>
+        <td *ngIf="userId">
+          <button (click)="viewHotelDetails(hotel.id)">View Details</button>
+        </td>
+        <td>
+          <button (click)="initiateDraftBooking(hotelId)">Create Draft Booking</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

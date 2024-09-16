@@ -1,7 +1,24 @@
-<div *ngFor="let user of users">
-    <h2>{{ user.name }}</h2>
-    <p>Email: {{ user.email }}</p>
-    <!-- <button (click)="trackVisits(user.id)">Track Visits</button> -->
-    <!-- <button (click)="initiateDraftBooking(user.id)">Initiate Draft Booking</button> -->
-    <!-- <button (click)="completeBooking(user.id)">Complete Booking</button> -->
+<div>
+    <h2>User List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <!-- <button (click)="initiateDraftBooking(user.id)">Initiate Draft Booking</button>
+            <button (click)="completeBooking(user.id)">Complete Booking</button> -->
+            <!-- <button (click)="recommendations(user.id)">Recommendations</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  

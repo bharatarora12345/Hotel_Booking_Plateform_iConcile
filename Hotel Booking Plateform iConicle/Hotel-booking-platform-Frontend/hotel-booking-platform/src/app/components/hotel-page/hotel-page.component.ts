@@ -22,7 +22,6 @@ export class HotelPageComponent implements OnInit {
       const hotelId = +params.get('id')!;
       this.loadHotelDetails(hotelId);
     });
-    // this.loadHotelDetails();
   }
 
 
@@ -33,8 +32,6 @@ export class HotelPageComponent implements OnInit {
     }, error => {
       console.error('Error fetching draft bookings', error);
     });
-
-    // Load Completed Bookings
     this.apiService.getCompletedBookings(hotelId).subscribe(data => {
       this.completedBookings = data;
     }, error => {

@@ -10,6 +10,18 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  loginUser(email: string, password: string): Observable<any> {
+    const payload = {
+      email: email,
+      password: password
+    };
+    return this.http.post(`${this.baseUrl}/users/login`, payload);
+  }
+
+  createUser(payload : any) : Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/add`, payload);
+  }
+
   getAllHotels(): Observable<any> {
     return this.http.get(`${this.baseUrl}/hotels/getAll`);
   }
@@ -18,8 +30,13 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/users/getAll`);
   }
 
-  createDraftBooking(userId: number, hotelId: number): Observable<any> {
+  createDraftBooking(hotelId: number, userId: number): Observable<any> {
     return this.http.post(`${this.baseUrl}/bookings/create/draftBooking?userId=${userId}&hotelId=${hotelId}`, {});
+  }
+
+  
+  visitTrackHotel(hotelId: number, userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/visit/track?userId=${userId}&hotelId=${hotelId}`, {});
   }
 
   completeBooking(bookingId: number): Observable<any> {

@@ -3,12 +3,15 @@ package com.HotelBookingPlateform_iConicle.service;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.HotelBookingPlateform_iConicle.entity.Hotel;
 import com.HotelBookingPlateform_iConicle.entity.User;
 import com.HotelBookingPlateform_iConicle.entity.Visit;
 import com.HotelBookingPlateform_iConicle.repository.VisitRepository;
 
+
+@Service
 public class VisitService {
 
 	

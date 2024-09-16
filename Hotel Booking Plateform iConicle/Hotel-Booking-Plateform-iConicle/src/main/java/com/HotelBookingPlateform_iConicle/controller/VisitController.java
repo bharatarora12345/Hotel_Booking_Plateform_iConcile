@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.HotelBookingPlateform_iConicle.entity.Hotel;
 import com.HotelBookingPlateform_iConicle.entity.User;
@@ -12,6 +14,8 @@ import com.HotelBookingPlateform_iConicle.service.HotelService;
 import com.HotelBookingPlateform_iConicle.service.UserService;
 import com.HotelBookingPlateform_iConicle.service.VisitService;
 
+@RestController
+@RequestMapping("/api/visit")
 @CrossOrigin(origins = "http://localhost:4000")
 public class VisitController {
 	 @Autowired

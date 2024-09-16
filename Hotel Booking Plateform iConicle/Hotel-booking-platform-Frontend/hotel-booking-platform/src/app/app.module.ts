@@ -9,7 +9,9 @@ import { HotelPageComponent } from './components/hotel-page/hotel-page.component
 import { BookingComponent } from './components/booking/booking.component';
 import { RecommendationsComponent } from './components/recommendations/recommendations.component';
 import { ApiService } from './services/api.service';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { HomeLoginComponent } from './components/home-login/home-login.component'; 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
     UserListComponent,
     HotelPageComponent,
     BookingComponent,
-    RecommendationsComponent
+    RecommendationsComponent,
+    HomeLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
